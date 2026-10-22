@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Recycling ♻ Service Provider</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♻️</text></svg>">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var dark = saved ? saved === 'dark'
+                       : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (dark) document.documentElement.classList.add('dark-mode');
+    } catch (e) {}
+  })();
+</script>
+    <!-- Link to the external CSS style sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <!-- Header & Responsive Navigation Section -->
+    <header class="navbar-header">
+        <nav class="navbar">
+            <!-- Brand Logo -->
+            <a href="#home" class="nav-logo">EcoLoop</a>
+
+            <!-- Mobile Hamburger Trigger -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+
+            <!-- Navigation Links Container -->
+            <div class="nav-menu-container">
+                <ul class="nav-links">
+<li><a href="#home" class="nav-item active">Home</a></li>
+<li><a href="#about" class="nav-item">About</a></li>
+<li><a href="#services" class="nav-item">Services</a></li>
+<li><a href="#contact" class="nav-item">Contact</a></li>
+                </ul>
+
+                <!-- Sliding Theme Toggle Switch inside Navbar -->
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" aria-label="Toggle dark mode" />
+                    <div class="slider">
+                        <span class="emoji sun">☀️</span>
+                        <span class="emoji moon">🌙</span>
+                        <div class="ball"></div>
+                    </div>
+                </label>
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content Area -->
+    <main>
+  <section id="home" class="hero">
+
+    <h1>We recycle <span id="typewriter"></span></h1>
+    <p class="reveal">Smart, simple waste recycling for homes and businesses.</p>
+  </section>
+
+  <section id="about">
+    <h2 class="reveal">About</h2>
+    <p class="reveal">EcoLoop collects, sorts and recycles waste so less of it ends up in landfill.</p>
+  </section>
+
+  <section id="services">
+    <h2 class="reveal">Services</h2>
+    <div class="card reveal"><h3>Plastic &amp; Paper</h3><p>Doorstep pickup and sorting.</p></div>
+  </section>
+
+  <section id="contact">
+    <h2 class="reveal">Contact</h2>
+    <p class="reveal">hello@ecoloop.example</p>
+  </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 EcoLoop. All rights reserved.</p>
+  </footer>
+
+  <!-- Link to Javascript behavior -->
+    <script src="script.js"></script>
+<script async src="https://www.gofastsupport.ai/api/embed/anf-inc.js" data-key="emb_224c13157b6848b0dd7fecdaed6339ff0cef522c0598178e">
+</script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+/* ==========================================================================
+   1. Theme Color Variables (Light Mode Default)
+   ========================================================================== */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222222;
+    --btn-bg: #e4e4e4;
+    --ball-border: #222222;
+    --nav-bg: #ffffff;
+    --nav-border: rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.3s;
+    --nav-height: 70px;
+}
+
+/* Dark Mode Color Overrides */
+:root.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f5f5f5;
+    --btn-bg: #333333;
+    --ball-border: #ffffff;
+    --nav-bg: #1a1a1a;
+    --nav-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   2. CSS Reset & Document Setup
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Smooth theme transitions */
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+main {
+    flex: 1;
+    padding: 4rem 2rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+footer {
+    padding: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. Modern Navigation Bar Layout (Desktop First Base)
+   ========================================================================== */
+.navbar-header {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.nav-menu-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.75;
+    transition: opacity var(--transition-speed), color var(--transition-speed);
+}
+
+.nav-item:hover, .nav-item.active {
+    opacity: 1;
+}
+
+/* Hide mobile controls on desktop screen sizes */
+.nav-toggle-checkbox, .hamburger {
+    display: none;
+}
+
+.navbar { transition: padding var(--transition-speed); }
+
+.navbar-header.scrolled .navbar { padding: 0.5rem 2rem; }
+
+/* ==========================================================================
+   4. Sliding Theme Toggle Widget
+   ========================================================================== */
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+}
+
+.slider {
+    background-color: var(--btn-bg);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background-color var(--transition-speed);
+    border-radius: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 7px;
+    box-sizing: border-box;
+}
+
+.theme-switch input:focus-visible + .slider {
+    outline: 2px solid var(--text-color);
+    outline-offset: 3px;
+}
+
+.emoji {
+    font-size: 14px;
+    user-select: none;
+    z-index: 1;
+}
+
+.ball {
+    background-color: transparent;
+    border: 2px solid var(--ball-border);
+    bottom: 4px;
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1), border-color var(--transition-speed);
+    width: 26px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.theme-switch input:checked + .slider .ball {
+    transform: translateX(26px);
+}
+section[id] {
+    scroll-margin-top: var(--nav-height);
+}
+
+.scroll-progress {
+    position: fixed; top: 0; left: 0;
+    height: 3px; width: 100%;
+    background: #2ecc71;
+    transform: scaleX(0); transform-origin: left;
+    z-index: 2000;
+}
+
+/* ==========================================================================
+   5. Page Sections (Hero, Cards, Footer)
+   ========================================================================== */
+.hero {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+.card {
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+footer {
+    text-align: center;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   6. Responsive Breakpoint Media Query (Mobile Layout Style)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .hamburger .bar {
+        height: 3px;
+        width: 100%;
+        background-color: var(--text-color);
+        border-radius: 10px;
+        transition: all var(--transition-speed);
+    }
+
+    .nav-toggle-checkbox {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        width: 24px;
+        height: 24px;
+        right: 2rem;
+        top: calc(50% - 12px);
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    .nav-toggle-checkbox:focus-visible ~ .hamburger {
+        outline: 2px solid var(--text-color);
+        outline-offset: 4px;
+    }
+
+    .nav-menu-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--nav-bg);
+        border-bottom: 1px solid var(--nav-border);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+        display: none;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    .nav-toggle-checkbox:checked ~ .nav-menu-container {
+        display: flex;
+    }
+
+    .nav-toggle-checkbox:checked ~ .hamburger .bar:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .nav-toggle-checkbox:checked ~ .hamburger .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle-checkbox:checked ~ .hamburger .bar:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+#typewriter::after { content: '|'; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
